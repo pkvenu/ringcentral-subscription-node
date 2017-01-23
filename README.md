@@ -1,47 +1,48 @@
-![RingCentral Developer Platform](https://raw.githubusercontent.com/pkvenu/ringcentral-subscription-node/master/rc4d_logo_2016.png)
+# Twilio Chat - ASP.NET MVC
 
-# RingCentral Subscription Basic Demo App
+C# implementation of Twilio Chat using ASP.NET MVC
 
-This is a demo application showing how to use RingCentral Push Notifications using the JS SDK. This application will GET all the Extensions (Enabled + User) in your RingCentral account (based on the environment, but defaults to Sandbox) and will add eventFilters in a single Subscription that will then receive Presence Events for these Extensions. The data from these presence events is then logged in the console of the application for you to review, and if you choose, filter and then execute external REST requests using the embedded HTTP server.
+[![Build status](https://ci.appveyor.com/api/projects/status/e0h30vnonbjwyyhd/branch/master?svg=true)](https://ci.appveyor.com/project/TwilioDevEd/twiliochat-csharp/branch/master)
 
-This is only a demo application to show how to use Subscriptions properly with the [RingCentral-JS](https://github.com/ringcentral/ringcentral-js) SDK. This code should not be used directly in production, but can be used for PoC development and testing.
+## Local Development
 
-You are able to configure this application to operate with either your RingCentral Sandbox or Production applications in the `.env` file by setting the `RC_ENV` value to either `sandbox` or `production`.
+1. Clone this repository and `cd` into its directory:
+   ```
+   git clone git@github.com:pkvenu/ringcentral-subscription-node.git
+   cd twiliochat-csharp
+   ```
 
-You can also set this application to use any of the RingCentral Subscription Notification Types (they are all enabled by default) in the `.env` file. Read the API Reference for [Notification Event Types](https://developers.ringcentral.com/api-docs/latest/index.html#!#EventTypes.html) to understand more about these options.
-
-## Prerequisites
-
-* Valid RingCentral Account
-* Access to [RingCentral Developer Portal](https://developer.ringcentral.com)
-* Have created a RingCentral Sandbox Account for development. [Read how to do this here](https://developers.ringcentral.com/library/tutorials/test-account.html)
-* Have configured your Sandbox Account to have one or more extensions which allow presence to be monitored. [Read how to setup Presence monitoring here](http://success.ringcentral.com/articles/en_US/RC_Knowledge_Article/How-to-choose-specific-user-extensions-to-monitor-for-Presence)
-* Node.js installed locally
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
-
-## Local Setup
-
-1. Clone `git clone https://github.com/bdeanindy/ringcentral-subscription-basics` this repository and `cd ringcentral-subscription-basics` into the project directory
-2. Install the dependencies `npm install`
-3. Configure your environment `cp .env.tmpl .env`
-4. Open the `.env` file and copy/paste your API keys and user credentials (admin user) into this file, then save/close it. 
-5. Create an application in [RingCentral Developer Portal](https://developers.ringcentral.com/my-account.html#/create-app) with the following parameters:
-    * Platform Type: Server-only (No UI)
-    * Application Type: Private
-    * Permissions Needed: Read Accounts, Read Call Log, Read Presence
-    * Name/Description: What you choose, but I always use something easy to identify in lists
+1. Create a new file `.env` and update the content with:
+   ```
+    PORT=3000
+    RC_ENV=sandbox
+    RC_APP_KEY=
+    RC_APP_SECRET=
+    RC_USERNAME=
+    RC_PASSWORD=
+    RC_EXTENSION=
+    RC_CACHE_PREFIX=
+    EXTENSIONS_PER_PAGE=500
+    SUBSCRIBE_TO_EXTENSION_EVENTS=true
+    SUBSCRIBE_TO_PRESENCE_EVENTS=true
+    SUBSCRIBE_TO_MESSAGE_STORE_EVENTS=true
+    SUBSCRIBE_TO_PRESENCE_LINE_EVENTS=true
+    SUBSCRIBE_TO_INSTANT_MESSAGE_EVENTS=true
+   ```
 
 
-## Operation
+3. Build the solution.
 
-1. To start the application, `npm start`
-2. When you see "Subscription created successfully", you're ready to create a presence event to test
-3. Call one of the numbers you have subscribed to in the application (currently this subscribes to all Enabled User extensions in your RingCentral Sandbox account) from your cellular or an outside line.
-4. You should see an incoming msg (Notification) when you dial into one of these numbers.
+4. Run the application. 
+    
+    ```saurus author```
 
-## Troubleshooting
+5. Check it out at [http://localhost:8080](http://localhost:8080)
 
-1. Not seeing presence events? Uncomment the console.log() which references `eventFilters` and re-run the application to see what extensions are being monitored
-2. Subscription failing to setup? Have you setup extensions in your RingCentral Sandbox account? Have they been enabled to monitor for Presence events?
-3. Anything else...add an issue and I will respond as soon as I am able
+That's it!
+
+## Meta
+
+* No warranty expressed or implied. Software is as is.
+* [MIT License](http://www.opensource.org/licenses/mit-license.html)
+
