@@ -1,0 +1,31 @@
+{
+  "name": "ringcentral-subscriptions",
+  "version": "0.2.0",
+  "description": "Demo application which shows how to properly setup RingCentral Push Notifications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bdeanindy/ringcentral-subscription-basics"
+  },
+  "engines": {
+    "node": "6.5.0"
+  },
+  "keywords": [
+    "RingCentral",
+    "PubSub",
+    "Push",
+    "Notifications",
+    "API",
+    "JavaScript"
+  ],
+  "author": "Benjamin Dean",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^2.0.0",
+    "ringcentral": "ringcentral/ringcentral-js#3.0.0-rc1"
+  }
+}

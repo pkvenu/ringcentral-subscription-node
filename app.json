@@ -1,0 +1,91 @@
+{
+    "name": "rc-subscription-demo",
+    "description": "Easy way for developers to stand up an application to watch for all event types on all extensions in their RingCentral accounts",
+    "repository": "https://github.com/bdeanindy/ringcentral-subscription-basics.git",
+    "logo": "https://raw.githubusercontent.com/bdeanindy/ringcentral-subscription-basics/master/rc4d_logo_2016.png",
+    "keywords": [
+        "RingCentral",
+        "ringcentral",
+        "subscription",
+        "subscriptions",
+        "events",
+        "pubnub",
+        "pubsub"
+    ],
+    "scripts": {
+        "postdeploy": "npm install"
+    },
+    "addons": [
+        {
+            "plan": "papertrail:choklad"
+        }
+    ],
+    "formation": [
+        {
+            "process": "web",
+            "quantity": 1
+        }
+    ],
+    "website": "https://developers.ringcentral.com",
+    "env": {
+        "RC_ENV": {
+            "description": "Will this be operating with a RingCentral Sandbox or Production account? accepts either: 'sandbox' or 'production'",
+            "required": true,
+            "value": "sandbox"
+        },
+        "RC_APP_KEY": {
+            "description": "Your RingCentral Application Key from the Developer Portal",
+            "required": true
+        },
+        "RC_APP_SECRET": {
+            "description": "Your RingCentral Application Secret from the Developer Portal",
+            "required": true
+        },
+        "RC_USERNAME": {
+            "description": "Your RingCentral Account Administrative Username (phone number). Expected format: [countryCode][numberWithoutSpecialCharactersParensOrHyphens], example: 12345678901",
+            "required": true
+        },
+        "RC_PASSWORD": {
+            "description": "Your RingCentral Account Administrative User Password",
+            "required": true
+        },
+        "RC_EXTENSION": {
+            "description": "Your RingCentral Account Administrative User Extension Number",
+            "required": false
+        },
+        "RC_CACHE_PREFIX": {
+            "description": "The cache prefix to use if you modify the source code to implement multiple instances of the SDK for different subscriptions across accounts",
+            "required": false
+        },
+        "EXTENSIONS_PER_PAGE": {
+            "description": "Number of Extensions to request per page, default number is optimal value for loading speed and performance. Lower numbers boot faster.",
+            "required": true,
+            "value": "500"
+        },
+        "SUBSCRIBE_TO_EXTENSION_EVENTS": {
+            "description": "Subscribe to status events for extensions? (accepts: true -or- false)",
+            "required": true,
+            "value": "true"
+        },
+        "SUBSCRIBE_TO_PRESENCE_EVENTS": {
+            "description": "Subscribe to presence events for extensions (uses detailedTelephonyStatus and aggregated set to true)? (accepts: true -or- false)",
+            "required": true,
+            "value": "true"
+        },
+        "SUBSCRIBE_TO_MESSAGE_STORE_EVENTS": {
+            "description": "Subscribe to message store events for extensions? (accepts: true -or- false)",
+            "required": true,
+            "value": "true"
+        },
+        "SUBSCRIBE_TO_PRESENCE_LINE_EVENTS": {
+            "description": "Subscribe to presence line events for extensions? (accepts: true -or- false)",
+            "required": true,
+            "value": "true"
+        },
+        "SUBSCRIBE_TO_INSTANT_MESSAGE_EVENTS": {
+            "description": "Subscribe to instant message (sms) events for extensions? (accepts: true -or- false)",
+            "required": true,
+            "value": "true"
+        }
+    }
+}
