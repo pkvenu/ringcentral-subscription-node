@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bdeanindy/ringcentral-subscription-basics"
+    "url": "https://github.com/pkvenu/ringcentral-subscription-node"
   },
   "engines": {
     "node": "6.5.0"
