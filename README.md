@@ -1,4 +1,4 @@
-# Twilio Chat - ASP.NET MVC
+# RingCentral Subscription - Basic Demo App
 
 Node.js implementation of RingCentral Subscription
 
